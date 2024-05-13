@@ -6,7 +6,8 @@
 */
 
 #include <stdlib.h>
-#include "../include/include.h"
+#include "../include/lib.h"
+
 char *my_strdup(char const *src)
 {
     int i = 0;

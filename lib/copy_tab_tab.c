@@ -5,7 +5,8 @@
 ** copy_tab_tab.c
 */
 
-#include "../include/include.h"
+#include "../include/lib.h"
+
 #include <stddef.h>
 #include <stdlib.h>
 

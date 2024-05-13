@@ -5,7 +5,7 @@
 ** strerror
 */
 
-#include "../include/include.h"
+#include "../include/lib.h"
 #include <unistd.h>
 
 int my_putstrerror(char *str)

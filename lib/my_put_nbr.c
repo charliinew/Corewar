@@ -5,7 +5,7 @@
 ** put_nbr
 */
 
-#include "../include/include.h"
+#include "../include/lib.h"
 
 int my_put_nbr(long int nb)
 {

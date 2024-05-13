@@ -5,7 +5,8 @@
 ** ML
 */
 
-#include "../include/include.h"
+#include "../include/lib.h"
+#include "../include/lib.h"
 
 int my_strlen(char const *str)
 {

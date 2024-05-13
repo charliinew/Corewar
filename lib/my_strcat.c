@@ -4,8 +4,7 @@
 ** File description:
 ** join 2 str
 */
-
-#include "../include/include.h"
+#include "../include/lib.h"
 
 char *my_strcat(char *dest, char const *src)
 {

@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/include.h"
+#include "../include/lib.h"
 
 int verif_espace(int e, char const *ytg)
 {

@@ -6,7 +6,8 @@
 */
 
 #include <stdio.h>
-#include "../include/include.h"
+#include "../include/lib.h"
+
 
 int define_signe(char const *pop)
 {

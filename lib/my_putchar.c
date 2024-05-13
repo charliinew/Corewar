@@ -5,7 +5,7 @@
 ** WRITE
 */
 
-#include "../include/include.h"
+#include "../include/lib.h"
 #include <unistd.h>
 
 int my_putchar(char c)
