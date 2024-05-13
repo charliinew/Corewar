@@ -5,7 +5,13 @@
 ** main.c
 */
 
+#include "../include/src.h"
+
 int main(int ac, char **av)
 {
+    header_t *tab_robot[4];
+
+    if (parsing(av, tab_robot) == 84)
+        return 84;
     return 0;
 }
