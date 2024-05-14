@@ -18,6 +18,13 @@
     #include <sys/stat.h>
     #include <fcntl.h>
     #include "stdlib.h"
+    #include "champions.h"
+
+typedef struct corewar_s {
+    int dump;
+    int nb_champion;
+    champion_t *champion[4];
+} corewar_t;
 
 int parsing(char **av, header_t **tab_robot);
 

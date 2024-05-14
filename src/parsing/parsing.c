@@ -5,7 +5,7 @@
 ** parsing.c
 */
 
-#include "../../include/src.h"
+#include "../../include/corewar.h"
 
 static int verif_open(char *av, header_t **tab_robot, int i)
 {

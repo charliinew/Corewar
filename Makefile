@@ -25,7 +25,14 @@ SRC = 	lib/my_put_nbr.c \
 		lib/copy_tab_tab.c \
 		src/main.c \
 		src/parsing/parsing.c \
-		src/op.c
+		src/op.c \
+		src/fetch_flags/check_champion.c \
+		src/fetch_flags/fetch_flags.c \
+		src/fetch_flags/set_champion.c \
+		src/fetch_flags/set_dump.c \
+		src/fetch_flags/set_load_address.c \
+		src/fetch_flags/set_prog_name.c \
+		src/fetch_flags/set_prog_number.c \
 
 all:	$(NAME)
 
