@@ -25,7 +25,8 @@ SRC = 	lib/my_put_nbr.c \
 		lib/copy_tab_tab.c \
 		src/main.c \
 		src/parsing/parsing.c \
-		src/op.c
+		src/op.c \
+		src/memory/memory.c
 
 all:	$(NAME)
 

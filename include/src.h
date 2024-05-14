@@ -21,4 +21,6 @@
 
 int parsing(char **av, header_t **tab_robot);
 
+void display_memory(u_int8_t *memoire, int taille);
+u_int8_t *init_memory(void);
 #endif /* COREWAR */

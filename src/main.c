@@ -26,6 +26,7 @@ static int print_h(void)
 int main(int ac, char **av)
 {
     header_t *tab_robot[4];
+    u_int8_t *memory = init_memory();
 
     if (ac == 2) {
         if (my_strcmp(av[1], "-h") == 0)
@@ -34,5 +35,6 @@ int main(int ac, char **av)
     }
     if (parsing(av, tab_robot) == 84)
         return 84;
+    display_memory(memory, MEM_SIZE);
     return 0;
 }
