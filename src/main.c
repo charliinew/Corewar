@@ -5,7 +5,7 @@
 ** main.c
 */
 
-#include "../include/src.h"
+#include "../include/corewar.h"
 
 static int print_h(void)
 {
@@ -25,15 +25,20 @@ static int print_h(void)
 
 int main(int ac, char **av)
 {
-    header_t *tab_robot[4];
     u_int8_t *memory = init_memory();
+    corewar_t *corewar;
 
     if (ac == 2) {
         if (my_strcmp(av[1], "-h") == 0)
             return print_h();
         return 84;
     }
-    if (parsing(av, tab_robot) == 84)
+    corewar = init_corewar_struct();
+    if (corewar == NULL)
+        return 84;
+    if (fetch_flags(av, corewar) == 84)
+        return 84;
+    if (parsing(corewar) == 84)
         return 84;
     display_memory(memory, MEM_SIZE);
     return 0;

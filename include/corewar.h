@@ -18,8 +18,16 @@
     #include <sys/stat.h>
     #include <fcntl.h>
     #include "stdlib.h"
+    #include "champions.h"
 
-int parsing(char **av, header_t **tab_robot);
+typedef struct corewar_s {
+    int dump;
+    int nb_champion;
+    champion_t *champion[4];
+} corewar_t;
+
+int parsing(corewar_t *corewar);
+corewar_t *init_corewar_struct(void);
 
 void display_memory(u_int8_t *memoire, int taille);
 u_int8_t *init_memory(void);

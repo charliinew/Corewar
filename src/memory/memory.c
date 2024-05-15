@@ -5,7 +5,7 @@
 ** memory.c
 */
 
-#include "../../include/src.h"
+#include "../../include/corewar.h"
 
 static void uint8_to_hex(u_int8_t value, char *hex_buffer)
 {
