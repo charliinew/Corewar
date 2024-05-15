@@ -41,5 +41,6 @@ int main(int ac, char **av)
     if (parsing(corewar) == 84)
         return 84;
     display_memory(memory, MEM_SIZE);
+    free(memory);
     return 0;
 }
