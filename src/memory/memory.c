@@ -7,7 +7,7 @@
 
 #include "../../include/src.h"
 
-void uint8_to_hex(u_int8_t value, char *hex_buffer)
+static void uint8_to_hex(u_int8_t value, char *hex_buffer)
 {
     const char hex_digits[] = "0123456789ABCDEF";
 
@@ -19,7 +19,7 @@ static void display_return_line(int i)
 {
     if (i % 32 == 0) {
         if (i != 0) {
-            my_putchar("\n");
+            my_putchar('\n');
         }
         return;
     }
@@ -35,7 +35,7 @@ void display_memory(u_int8_t *memoire, int taille)
         uint8_to_hex(memoire[i], hex_buffer);
         my_putstr(hex_buffer);
     }
-    my_putchar("\n");
+    my_putchar('\n');
 }
 
 u_int8_t *init_memory(void)
