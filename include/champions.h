@@ -20,8 +20,10 @@ typedef struct flags_s {
 
 typedef struct champion_s {
     int id;
+    int cycle_instruction;
     header_t *header;
     flags_t *flags;
+    int[16] reg;
 } champion_t;
 
 int fetch_flags(char **av, corewar_t *corewar);

@@ -23,7 +23,12 @@
 typedef struct corewar_s {
     int dump;
     int nb_champion;
+    int max_ctd;
+    int actual_ctd;
+    int total_cycle;
+    int nb_live;
     champion_t *champion[4];
+    u_int8_t *memory;
 } corewar_t;
 
 int parsing(corewar_t *corewar);

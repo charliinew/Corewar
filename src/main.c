@@ -25,7 +25,6 @@ static int print_h(void)
 
 int main(int ac, char **av)
 {
-    u_int8_t *memory = init_memory();
     corewar_t *corewar;
 
     if (ac == 2) {
@@ -40,6 +39,7 @@ int main(int ac, char **av)
         return 84;
     if (parsing(corewar) == 84)
         return 84;
-    display_memory(memory, MEM_SIZE);
+    main_loop(corewar);
+    display_memory(corewar->memory, MEM_SIZE);
     return 0;
 }

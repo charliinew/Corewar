@@ -15,6 +15,11 @@ corewar_t *init_corewar_struct(void)
         return NULL;
     corewar->dump = -1;
     corewar->nb_champion = 0;
+    corewar->memory = init_memory();
+    if (corewar->memory == NULL) {
+        free(corewar);
+        return NULL;
+    }
     for (int i = 0; i < 4; i++) {
         corewar->champion[i] = NULL;
     }
