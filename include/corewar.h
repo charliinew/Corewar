@@ -26,6 +26,7 @@ typedef struct corewar_s {
     champion_t *champion[4];
 } corewar_t;
 
-int parsing(char **av, header_t **tab_robot);
+int parsing(corewar_t *corewar);
+corewar_t *init_corewar_struct(void);
 
 #endif /* COREWAR */

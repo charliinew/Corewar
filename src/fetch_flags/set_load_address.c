@@ -11,7 +11,7 @@ int set_load_address(char **av, int *pos, champion_t *champion)
 {
     if (av[*pos + 1] == NULL || champion->flags->a != -1)
         return 84;
-    champion->flags->a = my_getnbr(av[*pos + 1]);
+    champion->flags->a = my_getnbr_doop(av[*pos + 1]);
     if (champion->flags->a == -1)
         return 84;
     *pos += 1;

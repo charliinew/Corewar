@@ -35,7 +35,9 @@ int main(int ac, char **av)
     corewar = init_corewar_struct();
     if (corewar == NULL)
         return 84;
-    if (parsing(av, tab_robot) == 84)
+    if (fetch_flags(av, corewar) == 84)
+        return 84;
+    if (parsing(corewar) == 84)
         return 84;
     return 0;
 }

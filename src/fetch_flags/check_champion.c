@@ -21,6 +21,8 @@ int check_champion(corewar_t *corewar)
     for (int i; i < corewar->nb_champion; i++) {
         if (corewar->champion[i]->flags->prog_name == NULL)
             return 84;
+        if (corewar->champion[i]->flags->a >= MEM_SIZE)
+            return 84;
     }
     return 0;
 }

@@ -10,6 +10,7 @@
 champion_t *set_champion(void)
 {
     champion_t *champion = malloc(sizeof(champion_t));
+
     if (champion == NULL)
         return NULL;
     champion->flags = malloc(sizeof(flags_t));

@@ -23,9 +23,11 @@ SRC = 	lib/my_put_nbr.c \
 		lib/my_puterror.c \
 		lib/my_putsterror.c \
 		lib/copy_tab_tab.c \
+		lib/my_getnbr_doop.c \
 		src/main.c \
 		src/parsing/parsing.c \
 		src/op.c \
+		src/corewar_struct.c \
 		src/fetch_flags/check_champion.c \
 		src/fetch_flags/fetch_flags.c \
 		src/fetch_flags/set_champion.c \

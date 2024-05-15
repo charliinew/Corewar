@@ -1,44 +1,52 @@
 /*
 ** EPITECH PROJECT, 2023
-** MY_GETNBR
+** my_getnbr
 ** File description:
-** get nbr
+** qzd
 */
 
+#include <stdio.h>
 #include "../include/lib.h"
 
-int define_signe(char const *pop)
+int valeur_ext(int nombre)
 {
-    int nb_signe = 0;
-    int avc = 0;
+    int valeur_max = 2147483647;
+    int valeur_min = -2147483648;
 
-    while (pop[avc] != '\0' && (pop[avc] < 48 || pop[avc] > 57)) {
-        if (pop[avc] == 45) {
-            nb_signe ++;
-        }
-        avc++;
-    }
-    if (nb_signe % 2 == 0) {
-        return 1;
-    } else {
-        return -1;
-    }
+    if (nombre < (valeur_max / 10) && nombre > (valeur_min / 10)) {
+        return (nombre);
+    } else if (nombre < (valeur_min / 10))
+        return (-13830);
+    else
+        return (13830);
 }
 
-int my_getnbr(char const *str)
+int nbr_signe(int signe, int nombre)
 {
-    int signe = 0;
-    int decal = 0;
-    int result = 0;
+    if (signe == '-') {
+        nombre = -1 * nombre;
+        return (nombre);
+    }
+    return (nombre);
+}
 
-    signe = define_signe(str);
-    while (str[decal] < 48 || str[decal] > 57) {
-        decal ++;
+long my_getnbr(char const *str)
+{
+    int i = 0;
+    int nombre = 0;
+    int signe = '+';
+
+    if (str != 0 && str[0] == '-') {
+        signe = '-';
+        i++;
     }
-    while (str[decal] >= 48 && str[decal] <= 57) {
-        result = (result * 10) + str[decal] - 48;
-        decal ++;
+    while (str != 0 && str[i] != '\0') {
+        if (str[i] < '0' || str[i] > '9')
+            break;
+        if (str[i] >= '0' && str[i] <= '9')
+            nombre = nbre(i, nombre, str);
+        i++;
     }
-    result = result * signe;
-    return result;
+    nombre = nbr_signe(signe, nombre);
+    return (nombre);
 }
