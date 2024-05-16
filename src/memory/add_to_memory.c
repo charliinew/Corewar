@@ -7,15 +7,14 @@
 
 #include "../../include/corewar.h"
 
-void add_to_memory(char *memory, champion_t *champion)
+void add_to_memory(u_int8_t *memory, champion_t *champion)
 {
-    static int pos = 0;
+    int pos = champion->flags->a;
 
-    for (int i = 0; i < MEM_SIZE; i++) {
+    for (int i = 0; pos < MEM_SIZE; i++) {
         if (champion->robot[i]) {
             memory[pos] = champion->robot[i];
-            pos ++;
         }
+        pos ++;
     }
-    pos ++;
 }

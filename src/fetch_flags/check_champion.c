@@ -24,5 +24,6 @@ int check_champion(corewar_t *corewar)
         if (corewar->champion[i]->flags->a >= MEM_SIZE)
             return 84;
     }
+    set_position(corewar);
     return 0;
 }

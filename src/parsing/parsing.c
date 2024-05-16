@@ -15,12 +15,7 @@ static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
     champion->robot = malloc(sizeof(char) *
             (champion->header->prog_size - sizeof(header_t)));
     read(fd, champion->robot, champion->header->prog_size - sizeof(header_t));
-    for (int i = 0; i < MEM_SIZE; i++) {
-        if (champion->robot[i]) {
-            memory[pos] = champion->robot[i];
-            pos ++;
-        }
-    }
+    add_to_memory(memory, champion);
     pos ++;
 }
 
