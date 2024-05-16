@@ -11,10 +11,11 @@
 static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
 {
     static int pos = 0;
+    printf("%d\n", champion->header->prog_size);
     unsigned char *body = malloc(sizeof(char) *
             champion->header->prog_size);
-
     read(fd, body, champion->header->prog_size);
+    body[champion->header->prog_size - 1] = '\0';
     add_to_memory(memory, body, champion);
     free(body);
     pos ++;
@@ -39,6 +40,10 @@ static int verif_open(champion_t *champion, u_int8_t *memory)
         free(champion->header);
         return 84;
     }
+    champion->header->prog_size = ((champion->header->prog_size >> 24) & 0xFF) |
+                       ((champion->header->prog_size << 8) & 0xFF0000) |
+                       ((champion->header->prog_size >> 8) & 0xFF00) |
+                       ((champion->header->prog_size << 24) & 0xFF000000);
     recup_instrucions(fd, champion, memory);
     close(fd);
     return 0;

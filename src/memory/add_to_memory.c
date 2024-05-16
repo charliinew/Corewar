@@ -12,9 +12,10 @@ void add_to_memory(u_int8_t *memory, unsigned char *champ,
 {
     int pos = champion->flags->a;
 
-    for (int i = 0; pos < MEM_SIZE; i++) {
-        if (champ[i] != '\0')
+    for (int i = 0; pos < MEM_SIZE; pos ++) {
+        if (champ[i] != '\0') {
             memory[pos] = champ[i];
-        pos ++;
+            i ++;
+        }
     }
 }
