@@ -14,7 +14,7 @@ void my_live(corewar_t *corewar, champion_t *champion)
 
     corewar->nb_live++;
     champion->cycle_instruction = 9;
-    champion->PC += 5;
+    champion->PC = (champion->PC + 5) % MEM_SIZE;
     for (i = 0; i < corewar->nb_champion; i++) {
         if (corewar->champion[i]->reg[0] == id)
             corewar->champion[i]->live++;

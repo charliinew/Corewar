@@ -43,6 +43,8 @@ SRC = 	lib/my_put_nbr.c \
 		src/instr/my_sub.c \
 		src/instr/my_xor.c \
 		src/instr/my_zjmp.c \
+		src/tools/int_to_bin.c \
+		src/tools/reconstruct_int.c \
 		src/execution/execution.c \
 		src/memory/add_to_memory.c \
 		src/free/free_struct.c \
@@ -52,7 +54,6 @@ SRC = 	lib/my_put_nbr.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
 		src/main_loop.c \
-		src/int_to_bin.c
 
 OBJ	=	$(SRC:.c=.o)
 
