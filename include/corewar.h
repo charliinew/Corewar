@@ -46,12 +46,18 @@ void display_memory(u_int8_t *memoire, int taille);
 void add_to_memory(u_int8_t *memory, unsigned char *champ, champion_t
     *champion);
 u_int8_t *init_memory(void);
-int32_t reconstruct_int(uint8_t *memory, int index, int num_bytes);
 void launch_corewar(corewar_t *corewar);
 void purshase_execution(corewar_t *corewar, champion_t *champion);
 
 void uint8_to_hex(u_int8_t value, char *hex_buffer);
 void free_struct(corewar_t *corewar, u_int8_t *memory);
 
+int check_coding_byte(char *cdb, int index);
+
+int32_t reconstruct_int(uint8_t *memory, int index, int num_bytes);
 char *int_to_bin(int nb);
+int get_arg(corewar_t *corewar, champion_t *champion, int size);
+int get_type(char *cdb, int idx);
+void write_into_memory(uint8_t *memory, int index, int32_t value);
+
 #endif /* COREWAR */
