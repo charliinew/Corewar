@@ -24,4 +24,5 @@ char *my_strdup(char const *src);
 int my_puterror(char c);
 int my_putstrerror(char *str);
 char **copy_string_array(char **source);
+
 #endif /* PROTOTYPE_TEST */
