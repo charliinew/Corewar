@@ -8,6 +8,8 @@
 #ifndef CHAMPIONS_H
     #define CHAMPIONS_H
 
+    #include "corewar.h"
+
 typedef struct header_s header_t;
 
 typedef struct corewar_s corewar_t;
@@ -22,6 +24,7 @@ typedef struct champion_s {
     int id;
     header_t *header;
     flags_t *flags;
+    char *robot;
 } champion_t;
 
 int fetch_flags(char **av, corewar_t *corewar);
