@@ -16,7 +16,7 @@ int check_champion(corewar_t *corewar)
         } else
             break;
     }
-    if (corewar->nb_champion < 2 || corewar->nb_champion > 4)
+    if (corewar->nb_champion < 2)
         return 84;
     for (int i = 0; i < corewar->nb_champion; i++) {
         if (corewar->champion[i]->flags->prog_name == NULL)
