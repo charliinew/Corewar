@@ -31,7 +31,7 @@ champion_t *set_champion(void)
     }
     champion->cycle_instruction = 0;
     champion->live = 0;
-    champion->carry = 0;
+    champion->carry = 1;
     champion->flags->n = -1;
     champion->flags->a = -1;
     champion->flags->prog_name = NULL;
