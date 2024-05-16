@@ -53,4 +53,5 @@ void purshase_execution(corewar_t *corewar, champion_t *champion);
 void uint8_to_hex(u_int8_t value, char *hex_buffer);
 void free_struct(corewar_t *corewar, u_int8_t *memory);
 
+char *int_to_bin(int nb);
 #endif /* COREWAR */
