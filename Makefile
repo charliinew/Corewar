@@ -46,10 +46,12 @@ SRC = 	lib/my_put_nbr.c \
 		src/tools/int_to_bin.c \
 		src/tools/reconstruct_int.c \
 		src/tools/check_coding_byte.c \
+		src/tools/get_type.c \
+		src/tools/get_arg.c \
+		src/tools/write_into_memory.c \
 		src/execution/execution.c \
 		src/memory/add_to_memory.c \
 		src/free/free_struct.c \
-		src/main.c \
 		src/parsing/parsing.c \
 		src/parsing/find_prog_size.c \
 		src/parsing/find_header.c \
@@ -57,6 +59,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/parsing/recup_instructions.c \
 		src/parsing/verif_magic_number.c \
 		src/op.c \
+		src/main.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
 		src/main_loop.c \
