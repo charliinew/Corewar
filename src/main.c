@@ -42,5 +42,6 @@ int main(int ac, char **av)
         return 84;
     launch_corewar(&corewar);
     display_memory(corewar.memory, MEM_SIZE);
+    free_struct(&corewar, corewar.memory);
     return 0;
 }

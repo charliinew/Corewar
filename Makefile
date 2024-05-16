@@ -51,6 +51,11 @@ SRC = 	lib/my_put_nbr.c \
 		src/free/free_struct.c \
 		src/main.c \
 		src/parsing/parsing.c \
+		src/parsing/find_prog_size.c \
+		src/parsing/find_header.c \
+		src/parsing/open_file.c \
+		src/parsing/recup_instructions.c \
+		src/parsing/verif_magic_number.c \
 		src/op.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
