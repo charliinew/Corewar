@@ -5,7 +5,7 @@
 ** int_to_bin.c
 */
 
-#include "../include/corewar.h"
+#include "../../include/corewar.h"
 
 char *int_to_bin(int nb)
 {
