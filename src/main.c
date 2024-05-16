@@ -25,7 +25,7 @@ static int print_h(void)
 
 int main(int ac, char **av)
 {
-    char *memory = init_memory();
+    u_int8_t *memory = init_memory();
     corewar_t *corewar;
 
     if (ac == 2) {

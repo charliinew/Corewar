@@ -26,10 +26,10 @@ typedef struct corewar_s {
     champion_t *champion[4];
 } corewar_t;
 
-int parsing(corewar_t *corewar, char *memory);
+int parsing(corewar_t *corewar, u_int8_t *memory);
 corewar_t *init_corewar_struct(void);
 
-void display_memory(char *memoire, int taille);
-char *init_memory(void);
-void uint8_to_hex(char value, char *hex_buffer);
+void display_memory(u_int8_t *memoire, int taille);
+u_int8_t *init_memory(void);
+void uint8_to_hex(u_int8_t value, char *hex_buffer);
 #endif /* COREWAR */

@@ -24,7 +24,7 @@ typedef struct champion_s {
     int id;
     header_t *header;
     flags_t *flags;
-    char *robot;
+    u_int8_t *robot;
 } champion_t;
 
 int fetch_flags(char **av, corewar_t *corewar);

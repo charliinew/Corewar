@@ -7,7 +7,7 @@
 
 #include "../../include/corewar.h"
 
-void uint8_to_hex(char value, char *hex_buffer)
+void uint8_to_hex(u_int8_t value, char *hex_buffer)
 {
     const char hex_digits[] = "0123456789ABCDEF";
 
@@ -27,7 +27,7 @@ static void display_return_line(int i)
     my_putchar(' ');
 }
 
-void display_memory(char *memoire, int taille)
+void display_memory(u_int8_t *memoire, int taille)
 {
     char hex_buffer[3];
 
@@ -39,9 +39,9 @@ void display_memory(char *memoire, int taille)
     my_putchar('\n');
 }
 
-char *init_memory(void)
+u_int8_t *init_memory(void)
 {
-    char *memory = malloc(MEM_SIZE);
+    u_int8_t *memory = malloc(MEM_SIZE);
 
     for (int i = 0; i < MEM_SIZE; i++)
         memory[i] = 0;

@@ -8,7 +8,7 @@
 #include "../../include/corewar.h"
 
 
-static int recup_instrucions(int fd, champion_t *champion, char *memory)
+static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
 {
     static int pos = 0;
 
@@ -24,7 +24,7 @@ static int recup_instrucions(int fd, champion_t *champion, char *memory)
     pos ++;
 }
 
-static int verif_open(champion_t *champion, char *memory)
+static int verif_open(champion_t *champion, u_int8_t *memory)
 {
     int fd;
 
@@ -48,7 +48,7 @@ static int verif_open(champion_t *champion, char *memory)
     return 0;
 }
 
-int parsing(corewar_t *corewar, char *memory)
+int parsing(corewar_t *corewar, u_int8_t *memory)
 {
     for (int i = 0; i < corewar->nb_champion; i++) {
         if (verif_open(corewar->champion[i], memory) == 84)
