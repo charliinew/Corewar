@@ -19,6 +19,8 @@
     #include <fcntl.h>
     #include "stdlib.h"
     #include "champions.h"
+    #include "instruction.h"
+    #include <stdint.h>
 
 typedef struct corewar_s {
     int dump;
@@ -31,9 +33,18 @@ typedef struct corewar_s {
     u_int8_t *memory;
 } corewar_t;
 
+static void (*instr_tab[16])(corewar_t *, champion_t *) = {&my_live,
+    &my_ld, &my_st, &my_add, &my_sub, &my_and, &my_or,
+    &my_xor, &my_zjmp, &my_ldi, &my_sti, &my_fork,
+    &my_lld, &my_lldi, &my_lfork, &my_aff};
+
 int parsing(corewar_t *corewar);
 corewar_t *init_corewar_struct(void);
 
 void display_memory(u_int8_t *memoire, int taille);
 u_int8_t *init_memory(void);
+int32_t reconstruct_int(uint8_t *memory, int index, int num_bytes);
+void launch_corewar(corewar_t *corewar);
+void purshase_execution(corewar_t *corewar, champion_t *champion);
+
 #endif /* COREWAR */

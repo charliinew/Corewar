@@ -39,7 +39,7 @@ int main(int ac, char **av)
         return 84;
     if (parsing(corewar) == 84)
         return 84;
-    main_loop(corewar);
+    launch_corewar(corewar);
     display_memory(corewar->memory, MEM_SIZE);
     return 0;
 }

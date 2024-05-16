@@ -44,12 +44,11 @@ void launch_corewar(corewar_t *corewar)
 {
     while (1) {
         for (int i = 0; i < corewar->nb_champion; i++)
-            purchase_execution(corewar, corewar->champion[i]);
+            purshase_execution(corewar, corewar->champion[i]);
         if (check_end(corewar) == 1) {
             break;
         }
     }
     if (corewar->dump != -1)
         display_memory(corewar->memory, MEM_SIZE);
-    return 0;
 }

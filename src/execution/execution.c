@@ -9,7 +9,19 @@
 
 void purshase_execution(corewar_t *corewar, champion_t *champion)
 {
-    int instruction = my_getnbr_doop(corewar->memory[champion->PC]);
+    int instruction = corewar->memory[champion->PC];
+    int i;
 
-    printf("%d\n", instruction);
+    if (champion->cycle_instruction > 0) {
+        champion->cycle_instruction--;
+        return;
+    }
+    for (i = 1; i <= 16; i++) {
+        if (instruction == op_tab[i].code) {
+            instr_tab[i - 1](corewar, champion);
+            break;
+        }
+    }
+    if (i == 17)
+        champion->PC++;
 }

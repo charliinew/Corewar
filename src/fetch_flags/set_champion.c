@@ -11,10 +11,7 @@ void set_champion_next(corewar_t *corewar)
 {
     for (int i = 0; i < corewar->nb_champion; i++) {
         corewar->champion[i]->PC = corewar->champion[i]->flags->a;
-        if (corewar->champion[i]->flags->n != -1)
-            corewar->champion[i]->reg[0] = corewar->champion[i]->flags->n;
-        else
-            corewar->champion[i]->reg[0] = corewar->champion[i]->id;
+        corewar->champion[i]->reg[0] = corewar->champion[i]->flags->n;
         for (int j = 1; j < REG_NUMBER; j++)
             corewar->champion[i]->reg[j] = 0;
     }

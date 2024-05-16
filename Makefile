@@ -24,11 +24,6 @@ SRC = 	lib/my_put_nbr.c \
 		lib/my_putsterror.c \
 		lib/copy_tab_tab.c \
 		lib/my_getnbr_doop.c \
-		src/main.c \
-		src/parsing/parsing.c \
-		src/op.c \
-		src/memory/memory.c \
-		src/corewar_struct.c \
 		src/fetch_flags/check_champion.c \
 		src/fetch_flags/fetch_flags.c \
 		src/fetch_flags/set_champion.c \
@@ -36,6 +31,29 @@ SRC = 	lib/my_put_nbr.c \
 		src/fetch_flags/set_load_address.c \
 		src/fetch_flags/set_prog_name.c \
 		src/fetch_flags/set_prog_number.c \
+		src/instr/my_live.c \
+		src/instr/my_add.c \
+		src/instr/my_aff.c \
+		src/instr/my_and.c \
+		src/instr/my_fork.c \
+		src/instr/my_ld.c \
+		src/instr/my_ldi.c \
+		src/instr/my_lfork.c \
+		src/instr/my_lld.c \
+		src/instr/my_lldi.c \
+		src/instr/my_or.c \
+		src/instr/my_st.c \
+		src/instr/my_sti.c \
+		src/instr/my_sub.c \
+		src/instr/my_xor.c \
+		src/instr/my_zjmp.c \
+		src/execution/execution.c \
+		src/main.c \
+		src/parsing/parsing.c \
+		src/op.c \
+		src/memory/memory.c \
+		src/corewar_struct.c \
+		src/main_loop.c \
 
 all:	$(NAME)
 
