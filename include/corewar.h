@@ -32,7 +32,10 @@ int parsing(corewar_t *corewar, u_int8_t *memory);
 corewar_t *init_corewar_struct(void);
 
 void display_memory(u_int8_t *memoire, int taille);
-void add_to_memory(u_int8_t *memory, champion_t *champion);
+void add_to_memory(u_int8_t *memory, unsigned char *champ, champion_t
+    *champion);
 u_int8_t *init_memory(void);
 void uint8_to_hex(u_int8_t value, char *hex_buffer);
+
+void free_struct(corewar_t *corewar, u_int8_t *memory);
 #endif /* COREWAR */

@@ -11,11 +11,12 @@
 static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
 {
     static int pos = 0;
+    unsigned char *body = malloc(sizeof(char) *
+            champion->header->prog_size);
 
-    champion->robot = malloc(sizeof(char) *
-            (champion->header->prog_size - sizeof(header_t)));
-    read(fd, champion->robot, champion->header->prog_size - sizeof(header_t));
-    add_to_memory(memory, champion);
+    read(fd, body, champion->header->prog_size);
+    add_to_memory(memory, body, champion);
+    free(body);
     pos ++;
 }
 
@@ -48,8 +49,6 @@ int parsing(corewar_t *corewar, u_int8_t *memory)
     for (int i = 0; i < corewar->nb_champion; i++) {
         if (verif_open(corewar->champion[i], memory) == 84)
             return 84;
-        printf("--- %s ---\n", corewar->champion[i]->header->prog_name);
-        display_memory(corewar->champion[i]->robot, 100);
     }
     return 0;
 }

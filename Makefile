@@ -37,7 +37,8 @@ SRC = 	lib/my_put_nbr.c \
 		src/fetch_flags/set_prog_name.c \
 		src/fetch_flags/set_prog_number.c \
 		src/memory/add_to_memory.c \
-		src/fetch_flags/set_positions.c
+		src/fetch_flags/set_positions.c \
+		src/free/free_struct.c
 
 all:	$(NAME)
 
