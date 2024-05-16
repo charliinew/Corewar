@@ -7,9 +7,9 @@
 
 #include "../../include/corewar.h"
 
-int set_prog_name(char **av, int *pos, champion_t *champion)
+int set_prog_name(char **av, int pos, champion_t *champion)
 {
-    champion->flags->prog_name = my_strdup(av[*pos]);
+    champion->flags->prog_name = my_strdup(av[pos]);
     if (champion->flags->prog_name == NULL)
         return 84;
     return 1;

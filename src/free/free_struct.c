@@ -9,14 +9,15 @@
 
 void free_struct(corewar_t *corewar, u_int8_t *memory)
 {
-    for (int i = 0; i < corewar->nb_champion; i++) {
-        if (corewar->champion[i]->flags->prog_name != NULL)
-            free(corewar->champion[i]->flags->prog_name);
-        if (corewar->champion[i]->header != NULL)
-            free(corewar->champion[i]->header);
-        free(corewar->champion[i]->flags);
-        free(corewar->champion[i]);
+    champion_t *current = *corewar->champion;
+    champion_t *next;
+    for (;current != NULL; current = next) {
+        next = current->next;
+        if (current->flags->prog_name != NULL)
+            free(current->flags->prog_name);
+        free(current->flags);
+        free(current->header);
+        free(current);
     }
-    free(corewar);
     free(memory);
 }
