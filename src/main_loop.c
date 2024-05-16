@@ -37,7 +37,6 @@ static int check_end(corewar_t *corewar)
         return alive_champion(corewar);
     }
     return 0;
-
 }
 
 void launch_corewar(corewar_t *corewar)

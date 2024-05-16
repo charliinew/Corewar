@@ -45,6 +45,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/instr/my_zjmp.c \
 		src/tools/int_to_bin.c \
 		src/tools/reconstruct_int.c \
+		src/tools/check_coding_byte.c \
 		src/execution/execution.c \
 		src/memory/add_to_memory.c \
 		src/free/free_struct.c \
