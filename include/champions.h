@@ -21,6 +21,9 @@ typedef struct flags_s {
 typedef struct champion_s {
     int id;
     int cycle_instruction;
+    int live;
+    int PC;
+    int carry;
     header_t *header;
     flags_t *flags;
     int[16] reg;
@@ -33,5 +36,6 @@ int set_load_address(char **av, int *pos, champion_t *champion);
 int set_prog_name(char **av, int *pos, champion_t *champion);
 champion_t *set_champion(void);
 int check_champion(corewar_t *corewar);
+void set_champion_next(corewar_t *corewar);
 
 #endif /* !CHAMPIONS_H */
