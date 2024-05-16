@@ -9,12 +9,18 @@
 
 void my_live(corewar_t *corewar, champion_t *champion)
 {
+    int id = reconstruct_int(corewar->memory, champion->PC + 1, 4);
+    int i;
+
     corewar->nb_live++;
-    champion->live++;
     champion->cycle_instruction = 9;
     champion->PC += 5;
+    for (i = 0; i < corewar->nb_champion; i++) {
+        if (corewar->champion[i]->reg[0] == id)
+            corewar->champion[i]->live++;
+    }
     my_putstr("The player ");
-    my_put_nbr(champion->reg[0]);
+    my_put_nbr(id);
     my_putstr("(");
     my_putstr(champion->flags->prog_name);
     my_putstr(") is alive.\n");
