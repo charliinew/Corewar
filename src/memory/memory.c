@@ -7,12 +7,13 @@
 
 #include "../../include/corewar.h"
 
-static void uint8_to_hex(u_int8_t value, char *hex_buffer)
+void uint8_to_hex(u_int8_t value, char *hex_buffer)
 {
     const char hex_digits[] = "0123456789ABCDEF";
 
     hex_buffer[0] = hex_digits[(value >> 4) & 0xF];
     hex_buffer[1] = hex_digits[value & 0xF];
+    hex_buffer[2] = '\0';
 }
 
 static void display_return_line(int i)

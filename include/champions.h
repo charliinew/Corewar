@@ -8,6 +8,8 @@
 #ifndef CHAMPIONS_H
     #define CHAMPIONS_H
 
+    #include "corewar.h"
+
 typedef struct header_s header_t;
 
 typedef struct corewar_s corewar_t;

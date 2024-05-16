@@ -5,11 +5,6 @@
 ## makefile
 ##
 
-OBJ	=	$(SRC:.c=.o)
-
-NAME	= corewar
-
-
 SRC = 	lib/my_put_nbr.c \
 		lib/my_putchar.c \
 		lib/my_putstr.c \
@@ -31,6 +26,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/fetch_flags/set_load_address.c \
 		src/fetch_flags/set_prog_name.c \
 		src/fetch_flags/set_prog_number.c \
+		src/fetch_flags/set_positions.c \
 		src/instr/my_live.c \
 		src/instr/my_add.c \
 		src/instr/my_aff.c \
@@ -48,12 +44,18 @@ SRC = 	lib/my_put_nbr.c \
 		src/instr/my_xor.c \
 		src/instr/my_zjmp.c \
 		src/execution/execution.c \
+		src/memory/add_to_memory.c \
+		src/free/free_struct.c \
 		src/main.c \
 		src/parsing/parsing.c \
 		src/op.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
 		src/main_loop.c \
+
+OBJ	=	$(SRC:.c=.o)
+
+NAME	= corewar
 
 all:	$(NAME)
 

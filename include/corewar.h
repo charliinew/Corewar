@@ -38,13 +38,19 @@ static void (*instr_tab[16])(corewar_t *, champion_t *) = {&my_live,
     &my_xor, &my_zjmp, &my_ldi, &my_sti, &my_fork,
     &my_lld, &my_lldi, &my_lfork, &my_aff};
 
-int parsing(corewar_t *corewar);
+void set_position(corewar_t *corewar);
+int parsing(corewar_t *corewar, u_int8_t *memory);
 corewar_t *init_corewar_struct(void);
 
 void display_memory(u_int8_t *memoire, int taille);
+void add_to_memory(u_int8_t *memory, unsigned char *champ, champion_t
+    *champion);
 u_int8_t *init_memory(void);
 int32_t reconstruct_int(uint8_t *memory, int index, int num_bytes);
 void launch_corewar(corewar_t *corewar);
 void purshase_execution(corewar_t *corewar, champion_t *champion);
+
+void uint8_to_hex(u_int8_t value, char *hex_buffer);
+void free_struct(corewar_t *corewar, u_int8_t *memory);
 
 #endif /* COREWAR */

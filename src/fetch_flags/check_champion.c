@@ -18,13 +18,14 @@ int check_champion(corewar_t *corewar)
     }
     if (corewar->nb_champion < 2)
         return 84;
-    for (int i; i < corewar->nb_champion; i++) {
+    for (int i = 0; i < corewar->nb_champion; i++) {
         if (corewar->champion[i]->flags->prog_name == NULL)
             return 84;
         if (corewar->champion[i]->flags->a >= MEM_SIZE)
             return 84;
     }
     set_n_flags(corewar);
+    set_position(corewar);
     set_champion_next(corewar);
     return 0;
 }

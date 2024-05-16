@@ -24,6 +24,7 @@ champion_t *set_champion(void)
     if (champion == NULL)
         return NULL;
     champion->flags = malloc(sizeof(flags_t));
+    champion->header = NULL;
     if (champion->flags == NULL) {
         free(champion);
         return NULL;
