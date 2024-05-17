@@ -11,7 +11,7 @@ int set_dump(char **av, int *pos, int *dump)
 {
     if (av[*pos + 1] == NULL || *dump != -1)
         return 84;
-    *dump = my_getnbr(av[*pos + 1]);
+    *dump = my_getnbr_doop(av[*pos + 1]);
     if (*dump < 0)
         return 84;
     *pos += 1;
