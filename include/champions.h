@@ -32,6 +32,7 @@ typedef struct champion_s {
     int reg[16];
     struct champion_s **child;
     struct champion_s *next;
+    struct champion_s **child
 } champion_t;
 
 int fetch_flags(char **av, corewar_t *corewar);

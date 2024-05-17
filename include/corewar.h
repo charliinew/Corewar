@@ -64,4 +64,7 @@ int get_type_index(char *cdb, int idx);
 
 void display_winner_player(corewar_t *corewar);
 int check_end(corewar_t *corewar);
+
+void free_champ(champion_t *current);
+
 #endif /* COREWAR */

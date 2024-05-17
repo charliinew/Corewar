@@ -25,8 +25,22 @@ static int alive_champion(corewar_t *corewar)
     return 0;
 }
 
+static void clear_child_fork(champion_t *tmp)
+{
+    for (; tmp != NULL; tmp = tmp->next) {
+        if (tmp->live <= 0) {
+            free_champ(*tmp->child);
+            tmp->child = NULL;
+        }
+        if (tmp->child != NULL)
+            clear_child_fork(*tmp->child);
+    }
+}
+
 int check_end(corewar_t *corewar)
 {
+    champion_t *champion = *corewar->champion;
+
     corewar->total_cycle++;
     corewar->actual_ctd++;
     if (corewar->dump != -1 && corewar->total_cycle >= corewar->dump)
@@ -37,6 +51,7 @@ int check_end(corewar_t *corewar)
     }
     if (corewar->actual_ctd >= corewar->max_ctd) {
         corewar->actual_ctd = corewar->actual_ctd % corewar->max_ctd;
+        clear_child_fork(champion);
         return alive_champion(corewar);
     }
     return 0;

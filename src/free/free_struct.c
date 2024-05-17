@@ -7,9 +7,8 @@
 
 #include "../../include/corewar.h"
 
-void free_struct(corewar_t *corewar, u_int8_t *memory)
+void free_champ(champion_t *current)
 {
-    champion_t *current = *corewar->champion;
     champion_t *next;
 
     for (; current != NULL; current = next) {
@@ -20,5 +19,10 @@ void free_struct(corewar_t *corewar, u_int8_t *memory)
         free(current->header);
         free(current);
     }
+}
+
+void free_struct(corewar_t *corewar, u_int8_t *memory)
+{
+    free_champ(*corewar->champion);
     free(memory);
 }
