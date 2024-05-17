@@ -52,6 +52,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
 		src/main_loop.c \
+		src/int_to_bin.c
 
 OBJ	=	$(SRC:.c=.o)
 
