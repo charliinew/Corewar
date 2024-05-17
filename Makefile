@@ -84,4 +84,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+tests_run:
+	echo "test"
+
 re: fclean all
