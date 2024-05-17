@@ -26,8 +26,8 @@ static void exect_ld(corewar_t *corewar, champion_t *champion,
 void my_ld(corewar_t *corewar, champion_t *champion)
 {
     char *coding_byte = NULL;
-    int32_t arg1 = 0;
-    int32_t arg2 = 0;
+    int32_t arg1;
+    int32_t arg2;
 
     champion->PC = (champion->PC + 1) % MEM_SIZE;
     coding_byte = int_to_bin(corewar->memory[champion->PC]);
@@ -41,5 +41,4 @@ void my_ld(corewar_t *corewar, champion_t *champion)
     arg2 = get_arg(corewar, champion, 1);
     exect_ld(corewar, champion, arg1, arg2);
     free(coding_byte);
-    return;
 }
