@@ -11,7 +11,7 @@ void my_zjmp(corewar_t *corewar, champion_t *champion)
 {
     int value;
 
-    champion->cycle_instruction = 19;
+    champion->cycle_instruction = 24;
     if (champion->carry == 1) {
         value = reconstruct_int(corewar->memory, champion->PC + 1, 2);
         champion->PC = (champion->PC + value % IDX_MOD) % MEM_SIZE;

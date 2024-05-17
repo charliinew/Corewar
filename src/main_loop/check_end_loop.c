@@ -43,7 +43,7 @@ int check_end(corewar_t *corewar)
 
     corewar->total_cycle++;
     corewar->actual_ctd++;
-    if (corewar->dump != -1 && corewar->total_cycle >= corewar->dump)
+    if (corewar->dump != -1 && corewar->total_cycle > corewar->dump)
         return 1;
     if (corewar->nb_live >= NBR_LIVE) {
         corewar->nb_live = corewar->nb_live % NBR_LIVE;
