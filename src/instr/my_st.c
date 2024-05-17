@@ -17,7 +17,7 @@ static void st_copy(champion_t *champion, int32_t arg1, int32_t arg2)
 static void st_store(corewar_t *corewar, champion_t *champion, int32_t arg1,
     int32_t arg2)
 {
-    if (arg1 < 0 || arg1 > 16)
+    if (arg1 < 1 || arg1 > 16)
         return;
     write_into_memory(corewar->memory, (champion->PC + arg2 % IDX_MOD) %
         MEM_SIZE, champion->reg[arg1 - 1]);
