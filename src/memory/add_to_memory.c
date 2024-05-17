@@ -13,7 +13,7 @@ void add_to_memory(u_int8_t *memory, unsigned char *champ,
     int pos = champion->flags->a;
 
     for (int i = 0; pos < MEM_SIZE; pos ++) {
-        if (champ[i] < champion->header->prog_size) {
+        if (i < champion->header->prog_size) {
             memory[pos] = champ[i];
             i ++;
         }
