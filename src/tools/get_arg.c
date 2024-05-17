@@ -7,10 +7,10 @@
 
 #include "../../include/corewar.h"
 
-int get_arg(corewar_t *corewar, champion_t *champion, int size)
+int get_arg(corewar_t *corewar, int *index, int size)
 {
-    int arg = reconstruct_int(corewar->memory, champion->PC, size);
+    int arg = reconstruct_int(corewar->memory, *index, size);
 
-    champion->PC = (champion->PC + size) % MEM_SIZE;
+    *index = (*index + size) % MEM_SIZE;
     return arg;
 }

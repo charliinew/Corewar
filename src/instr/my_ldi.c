@@ -24,46 +24,48 @@ static void exec_ldi_next(corewar_t *corewar, champion_t *champion,
         champion->carry = 0;
 }
 
-static void exec_ldi(corewar_t *corewar, champion_t *champion,
+static int exec_ldi(corewar_t *corewar, champion_t *champion,
                      int32_t arg[3], char *cdb)
 {
     if (get_type(cdb, 1) == 1 && (arg[0] >= 1 && arg[0] <= 16)) {
         arg[0] = champion->reg[arg[0] - 1];
-    } else {
+    } else if (get_type(cdb, 1) == 1 && !(arg[0] >= 1 && arg[0] <= 16)) {
         champion->carry = 1;
-        return;
+        return 84;
     }
     if (get_type(cdb, 2) == 1 && (arg[1] >= 1 && arg[1] <= 16)) {
         arg[1] = champion->reg[arg[1] - 1];
-    } else {
+    } else if (get_type(cdb, 2) == 1 && (arg[1] >= 1 && arg[1] <= 16)) {
         champion->carry = 1;
-        return;
+        return 84;
     }
     if (arg[2] < 1 || arg[2] > 16) {
         champion->carry = 1;
-        return;
+        return 84;
     }
     exec_ldi_next(corewar, champion, arg);
+    return 0;
 }
 
 void my_ldi(corewar_t *corewar, champion_t *champion)
 {
     char *coding_byte = NULL;
-    int32_t arg1;
-    int32_t arg2;
-    int32_t arg3;
+    int32_t arg[3];
+    int pos = (champion->PC + 1) % MEM_SIZE;
 
-    champion->PC = (champion->PC + 1) % MEM_SIZE;
-    coding_byte = int_to_bin(corewar->memory[champion->PC]);
+    coding_byte = int_to_bin(corewar->memory[pos]);
     if (check_coding_byte(coding_byte, 9) == 84) {
         free(coding_byte);
         return;
     }
-    champion->cycle_instruction = 24;
-    arg1 = get_arg(corewar, champion, get_type_index(coding_byte, 1));
-    arg2 = get_arg(corewar, champion, get_type_index(coding_byte, 2));
-    arg3 = get_arg(corewar, champion, 1);
-    exec_ldi(corewar, champion,
-             (int32_t[3]){arg1, arg2, arg3}, coding_byte);
+    pos = (pos + 1) % MEM_SIZE;
+    arg[0] = get_arg(corewar, &pos, get_type_index(coding_byte, 1));
+    arg[1] = get_arg(corewar, &pos, get_type_index(coding_byte, 2));
+    arg[2] = get_arg(corewar, &pos, 1);
+    if (exec_ldi(corewar, champion, arg, coding_byte) != 84) {
+        champion->cycle_instruction = 24;
+        champion->PC = pos;
+    } else
+        champion->PC = (champion->PC + 1) % MEM_SIZE;
     free(coding_byte);
 }
