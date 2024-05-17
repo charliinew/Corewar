@@ -9,13 +9,13 @@
 
 static int alive_champion(corewar_t *corewar)
 {
-    int i = 0;
     int counter = 0;
+    champion_t *tmp = *corewar->champion;
 
-    for (; i < corewar->nb_champion; i++) {
-        if (corewar->champion[i]->live > 0)
+    for (; tmp != NULL ; tmp = tmp->next) {
+        if ((*corewar->champion)->live > 0)
             counter++;
-        corewar->champion[i]->live = 0;
+        (*corewar->champion)->live = 0;
     }
     if (counter <= 1)
         return 1;
@@ -42,12 +42,16 @@ static int check_end(corewar_t *corewar)
 
 void launch_corewar(corewar_t *corewar)
 {
+    champion_t *tmp = *corewar->champion;
+
     while (1) {
-        for (int i = 0; i < corewar->nb_champion; i++)
-            purshase_execution(corewar, corewar->champion[i]);
+        for (; tmp != NULL; tmp = tmp->next) {
+            purshase_execution(corewar, tmp);
+        }
         if (check_end(corewar) == 1) {
             break;
         }
+        tmp = *corewar->champion;
     }
     if (corewar->dump != -1)
         display_memory(corewar->memory, MEM_SIZE);

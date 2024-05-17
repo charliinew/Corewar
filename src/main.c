@@ -25,22 +25,23 @@ static int print_h(void)
 
 int main(int ac, char **av)
 {
-    corewar_t *corewar;
+    corewar_t corewar;
+    champion_t *champion = NULL;
 
     if (ac == 2) {
         if (my_strcmp(av[1], "-h") == 0)
             return print_h();
         return 84;
     }
-    corewar = init_corewar_struct();
-    if (corewar == NULL)
+    init_corewar_struct(&corewar, &champion);
+    if (corewar.memory == NULL)
         return 84;
-    if (fetch_flags(av, corewar) == 84)
+    if (fetch_flags(av, &corewar) == 84)
         return 84;
-    if (parsing(corewar, corewar->memory) == 84)
+    if (parsing(corewar.champion, &corewar) == 84)
         return 84;
-    launch_corewar(corewar);
-    display_memory(corewar->memory, MEM_SIZE);
-    free_struct(corewar, corewar->memory);
+    launch_corewar(&corewar);
+    display_memory(corewar.memory, MEM_SIZE);
+    free_struct(&corewar, corewar.memory);
     return 0;
 }

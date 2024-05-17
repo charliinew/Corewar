@@ -11,10 +11,11 @@ void set_position(corewar_t *corewar)
 {
     int pos = 0;
     int augment = MEM_SIZE / corewar->nb_champion;
+    champion_t  *tmp = *corewar->champion;
 
-    for (int i = 0; i < corewar->nb_champion; i++) {
-        if (corewar->champion[i]->flags->a == -1) {
-            corewar->champion[i]->flags->a = pos;
+    for (; tmp != NULL; tmp = tmp->next) {
+        if (tmp->flags->a == -1) {
+            tmp->flags->a = pos;
             pos += augment;
         }
     }

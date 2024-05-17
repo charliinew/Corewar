@@ -17,6 +17,7 @@ static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
     read(fd, body, champion->header->prog_size);
     body[champion->header->prog_size - 1] = '\0';
     add_to_memory(memory, body, champion);
+    printf("%s\n", body);
     free(body);
     pos ++;
 }
@@ -24,7 +25,8 @@ static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
 static int verif_open(champion_t *champion, u_int8_t *memory)
 {
     int fd;
-
+    printf("je suis la\n");
+    printf("%s\n", champion->flags->prog_name);
     fd = open(champion->flags->prog_name, O_RDONLY);
     if (fd == -1)
         return 84;
@@ -49,10 +51,13 @@ static int verif_open(champion_t *champion, u_int8_t *memory)
     return 0;
 }
 
-int parsing(corewar_t *corewar, u_int8_t *memory)
+int parsing(champion_t **champion, corewar_t *corewar)
 {
-    for (int i = 0; i < corewar->nb_champion; i++) {
-        if (verif_open(corewar->champion[i], memory) == 84)
+    champion_t *tmp = *champion;
+    printf("start\n");
+    for (; tmp != NULL; tmp = tmp->next) {
+        printf("je suis ici\n");
+        if (verif_open(tmp, corewar->memory) == 84)
             return 84;
     }
     return 0;
