@@ -16,13 +16,13 @@ static void st_copy(champion_t *champion, int32_t arg1, int32_t arg2, int pos)
     champion->cycle_instruction = 4;
 }
 
-static void st_store(corewar_t *corewar, champion_t *champion, int32_t arg1,
-    int32_t arg2, int pos)
+static void st_store(corewar_t *corewar, champion_t *champion, int32_t arg[2],
+    int pos)
 {
-    if (arg1 < 1 || arg1 > 16)
+    if (arg[0] < 1 || arg[0] > 16)
         return;
-    write_into_memory(corewar->memory, (champion->PC + arg2 % IDX_MOD) %
-        MEM_SIZE, champion->reg[arg1 - 1]);
+    write_into_memory(corewar->memory, (champion->PC + arg[1] % IDX_MOD) %
+        MEM_SIZE, champion->reg[arg[0] - 1]);
     champion->PC = pos;
     champion->cycle_instruction = 4;
 }
@@ -44,6 +44,6 @@ void my_st(corewar_t *corewar, champion_t *champion)
     if (get_type(coding_byte, 2) == 1)
         st_copy(champion, arg[0], arg[1], pos);
     else
-        st_store(corewar, champion, arg[0], arg[1], pos);
+        st_store(corewar, champion, arg, pos);
     free(coding_byte);
 }

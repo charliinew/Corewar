@@ -13,8 +13,10 @@ int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
     unsigned char *body = malloc(sizeof(char) *
         champion->header->prog_size);
 
-    read(fd, body, champion->header->prog_size);
+    if (read(fd, body, champion->header->prog_size) == -1)
+        return 84;
     add_to_memory(memory, body, champion);
     free(body);
     pos ++;
+    return 0;
 }

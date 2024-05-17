@@ -25,7 +25,7 @@ static void exec_ldi_next(corewar_t *corewar, champion_t *champion,
 }
 
 static int exec_ldi(corewar_t *corewar, champion_t *champion,
-                     int32_t arg[3], char *cdb)
+    int32_t arg[3], char *cdb)
 {
     if (get_type(cdb, 1) == 1 && (arg[0] >= 1 && arg[0] <= 16)) {
         arg[0] = champion->reg[arg[0] - 1];

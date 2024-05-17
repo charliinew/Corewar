@@ -8,7 +8,7 @@
 #include "../../include/corewar.h"
 
 static void exec_lldi_next(corewar_t *corewar, champion_t *champion,
-                          int32_t arg[3])
+    int32_t arg[3])
 {
     int32_t sum = reconstruct_int(corewar->memory, (champion->PC + arg[0])
         % MEM_SIZE, 2);
