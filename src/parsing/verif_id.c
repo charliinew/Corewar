@@ -16,9 +16,9 @@ static int verif_id2(int i, int *tab)
     return 0;
 }
 
-int verif_id(champion_t *champion)
+int verif_id(champion_t **champion)
 {
-    champion_t *tmp = champion;
+    champion_t *tmp = *champion;
     int tab[4];
     int i;
 
