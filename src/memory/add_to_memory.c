@@ -14,7 +14,6 @@ void add_to_memory(u_int8_t *memory, unsigned char *champ,
 
     for (int i = 0; pos < MEM_SIZE; pos ++) {
         if (champ[i]) {
-            printf("je suis ici\n");
             memory[pos] = champ[i];
         }
         i ++;

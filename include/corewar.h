@@ -29,7 +29,7 @@ typedef struct corewar_s {
     int actual_ctd;
     int total_cycle;
     int nb_live;
-    champion_t *champion[4];
+    champion_t **champion;
     u_int8_t *memory;
 } corewar_t;
 
@@ -39,8 +39,8 @@ static void (*instr_tab[16])(corewar_t *, champion_t *) = {&my_live,
     &my_lld, &my_lldi, &my_lfork, &my_aff};
 
 void set_position(corewar_t *corewar);
-int parsing(corewar_t *corewar, u_int8_t *memory);
-corewar_t *init_corewar_struct(void);
+int parsing(champion_t **champion, corewar_t *corewar);
+void init_corewar_struct(corewar_t *corewar, champion_t **champion);
 
 void display_memory(u_int8_t *memoire, int taille);
 void add_to_memory(u_int8_t *memory, unsigned char *champ, champion_t

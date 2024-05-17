@@ -7,13 +7,14 @@
 
 #include "../../include/corewar.h"
 
-void set_n_flags(corewar_t *corewar)
+void set_n_flags(champion_t **champion)
 {
     int n = 1;
+    champion_t *tmp = *champion;
 
-    for (int i = 0; i < corewar->nb_champion; i++) {
-        if (corewar->champion[i]->flags->n == -1) {
-            corewar->champion[i]->flags->n = n;
+    for (; tmp != NULL; tmp = tmp->next) {
+        if (tmp->flags->n == -1) {
+            tmp->flags->n = n;
             n++;
         }
     }

@@ -21,13 +21,17 @@ static int recup_instrucions(int fd, champion_t *champion, u_int8_t *memory)
     pos ++;
 }
 
-static int verif_open(champion_t *champion, u_int8_t *memory)
+static void find_good_prog_size(champion_t *champion)
 {
-    int fd;
+    champion->header->prog_size =
+        ((champion->header->prog_size >> 24) & 0xFF) |
+        ((champion->header->prog_size << 8) & 0xFF0000) |
+            ((champion->header->prog_size >> 8) & 0xFF00) |
+            ((champion->header->prog_size << 24) & 0xFF000000);
+}
 
-    fd = open(champion->flags->prog_name, O_RDONLY);
-    if (fd == -1)
-        return 84;
+static int find_header(champion_t *champion, int fd)
+{
     if (champion->header == NULL) {
         champion->header = (header_t *)malloc(sizeof(header_t));
         if (champion->header == NULL) {
@@ -40,19 +44,31 @@ static int verif_open(champion_t *champion, u_int8_t *memory)
         free(champion->header);
         return 84;
     }
-    champion->header->prog_size = ((champion->header->prog_size >> 24) & 0xFF)
-        | ((champion->header->prog_size << 8) & 0xFF0000) |
-        ((champion->header->prog_size >> 8) & 0xFF00) |
-        ((champion->header->prog_size << 24) & 0xFF000000);
+    return 0;
+}
+
+static int verif_open(champion_t *champion, u_int8_t *memory)
+{
+    int fd;
+
+    fd = open(champion->flags->prog_name, O_RDONLY);
+
+    if (fd == -1)
+        return 84;
+    if (find_header(champion, fd) == 84)
+        return 84;
+    find_good_prog_size(champion);
     recup_instrucions(fd, champion, memory);
     close(fd);
     return 0;
 }
 
-int parsing(corewar_t *corewar, u_int8_t *memory)
+int parsing(champion_t **champion, corewar_t *corewar)
 {
-    for (int i = 0; i < corewar->nb_champion; i++) {
-        if (verif_open(corewar->champion[i], memory) == 84)
+    champion_t *tmp = *champion;
+
+    for (; tmp != NULL; tmp = tmp->next) {
+        if (verif_open(tmp, corewar->memory) == 84)
             return 84;
     }
     return 0;
