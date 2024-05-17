@@ -10,7 +10,6 @@
 char *int_to_bin(int nb)
 {
     char *rep = malloc(sizeof(char) * 9);
-    int avc = 0;
 
     for (int i = 0; i < 8; i++)
         rep[i] = '0';
