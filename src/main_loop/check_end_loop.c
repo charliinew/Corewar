@@ -13,11 +13,12 @@ static int alive_champion(corewar_t *corewar)
     champion_t *tmp = *corewar->champion;
 
     for (; tmp != NULL; tmp = tmp->next) {
-        if ((*corewar->champion)->live > 0) {
+        if (tmp->live > 0) {
             counter++;
-            (*corewar->champion)->live = 0;
-        } else
-            (*corewar->champion)->live = -1;
+            tmp->live = 0;
+        } else {
+            tmp->live = -1;
+        }
     }
     if (counter <= 1)
         return 1;
