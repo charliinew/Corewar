@@ -7,6 +7,15 @@
 
 #include "../../include/corewar.h"
 
+static int verif_id2(int i, int *tab)
+{
+    for (int j = 0; j < 4; j++) {
+        if (i != j && tab[i] == tab[j] && tab[i] != -1)
+            return 84;
+    }
+    return 0;
+}
+
 int verif_id(champion_t *champion)
 {
     champion_t *tmp = champion;
@@ -21,10 +30,8 @@ int verif_id(champion_t *champion)
         i++;
     }
     for (i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (i != j && tab[i] == tab[j] && tab[i] != -1)
-                return 84;
-        }
+        if (verif_id2(i, tab) != 0)
+            return 84;
     }
     return 0;
 }
