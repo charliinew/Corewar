@@ -7,7 +7,7 @@
 
 #include "../../include/corewar.h"
 
-static void exect_add(champion_t *champion, int32_t arg[3])
+static void exec_add(champion_t *champion, int32_t arg[3])
 {
     int sum;
 
@@ -41,7 +41,6 @@ void my_add(corewar_t *corewar, champion_t *champion)
     arg1 = get_arg(corewar, champion, 1);
     arg2 = get_arg(corewar, champion, 1);
     arg3 = get_arg(corewar, champion, 1);
-    exect_add(champion, (int32_t[3]){arg1, arg2, arg3});
+    exec_add(champion, (int32_t[3]){arg1, arg2, arg3});
     free(coding_byte);
-    return;
 }

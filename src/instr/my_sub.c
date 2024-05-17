@@ -7,7 +7,7 @@
 
 #include "../../include/corewar.h"
 
-static void exect_sub(champion_t *champion, int32_t arg[3])
+static void exec_sub(champion_t *champion, int32_t arg[3])
 {
     int sub;
 
@@ -33,7 +33,7 @@ void my_sub(corewar_t *corewar, champion_t *champion)
 
     champion->PC = (champion->PC + 1) % MEM_SIZE;
     coding_byte = int_to_bin(corewar->memory[champion->PC]);
-    if (check_coding_byte(coding_byte, 3) == 84) {
+    if (check_coding_byte(coding_byte, 4) == 84) {
         free(coding_byte);
         return;
     }
@@ -41,7 +41,6 @@ void my_sub(corewar_t *corewar, champion_t *champion)
     arg1 = get_arg(corewar, champion, 1);
     arg2 = get_arg(corewar, champion, 1);
     arg3 = get_arg(corewar, champion, 1);
-    exect_sub(champion, (int32_t[3]){arg1, arg2, arg3});
+    exec_sub(champion, (int32_t[3]){arg1, arg2, arg3});
     free(coding_byte);
-    return;
 }

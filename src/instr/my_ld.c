@@ -7,7 +7,7 @@
 
 #include "../../include/corewar.h"
 
-static void exect_ld(corewar_t *corewar, champion_t *champion,
+static void exec_ld(corewar_t *corewar, champion_t *champion,
     int32_t arg1, int32_t arg2)
 {
     if (arg2 < 1 || arg2 > 16) {
@@ -39,6 +39,6 @@ void my_ld(corewar_t *corewar, champion_t *champion)
     champion->PC = (champion->PC + 1) % MEM_SIZE;
     arg1 = get_arg(corewar, champion, get_type(coding_byte, 1));
     arg2 = get_arg(corewar, champion, 1);
-    exect_ld(corewar, champion, arg1, arg2);
+    exec_ld(corewar, champion, arg1, arg2);
     free(coding_byte);
 }
