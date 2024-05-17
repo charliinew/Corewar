@@ -30,9 +30,9 @@ static void clear_child_fork(champion_t *tmp)
     for (; tmp != NULL; tmp = tmp->next) {
         if (tmp->live <= 0) {
             free_champ(*tmp->child);
-            tmp->child = NULL;
+            *tmp->child = NULL;
         }
-        if (tmp->child != NULL)
+        if (*tmp->child != NULL)
             clear_child_fork(*tmp->child);
     }
 }

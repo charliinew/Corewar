@@ -59,6 +59,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/parsing/open_file.c \
 		src/parsing/recup_instructions.c \
 		src/parsing/verif_magic_number.c \
+		src/parsing/verif_id.c \
 		src/main_loop/main_loop.c \
 		src/main_loop/display_winner_player.c \
 		src/main_loop/check_end_loop.c \
@@ -76,7 +77,7 @@ NAME	= corewar
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME)  $(OBJ) -g -I./include
+	gcc -o $(NAME)  $(OBJ) -I./include
 
 clean:
 	rm -f $(OBJ)

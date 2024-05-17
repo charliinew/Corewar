@@ -48,5 +48,6 @@ void add_child(corewar_t *corewar, champion_t *champion, int child_pc, int
 champion_t *set_champion_child(champion_t *champion);
 header_t *copy_header(header_t *header);
 flags_t *copy_flags(flags_t *flags);
+int verif_id(champion_t *champion);
 
 #endif /* !CHAMPIONS_H */

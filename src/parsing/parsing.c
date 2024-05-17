@@ -15,5 +15,7 @@ int parsing(champion_t **champion, corewar_t *corewar)
         if (verif_open(tmp, corewar->memory) == 84)
             return 84;
     }
+    if (verif_id(*champion) == 84)
+        return 84;
     return 0;
 }

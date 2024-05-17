@@ -15,6 +15,7 @@ static void find_nb_id(corewar_t *corewar)
         if (tmp != NULL) {
             corewar->nb_champion ++;
             tmp->id = i + 1;
+            i++;
         } else
             break;
     }

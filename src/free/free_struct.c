@@ -13,6 +13,10 @@ void free_champ(champion_t *current)
 
     for (; current != NULL; current = next) {
         next = current->next;
+        if (current->child != NULL) {
+            free_champ(*current->child);
+            free(current->child);
+        }
         if (current->flags->prog_name != NULL)
             free(current->flags->prog_name);
         free(current->flags);
