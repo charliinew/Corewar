@@ -7,20 +7,18 @@
 
 #include "../../include/corewar.h"
 
-static void exec_ld(corewar_t *corewar, champion_t *champion,
-    int32_t arg1, int32_t arg2)
+static void exec_ld(corewar_t *corewar, champion_t *champion, int32_t arg[2])
 {
-    if (arg2 < 1 || arg2 > 16) {
+    if (arg[1] < 1 || arg[1] > 16) {
         champion->carry = 1;
         return;
     }
-    champion->reg[arg2 - 1] = arg1;
-    if (arg1 == 0)
+    champion->reg[arg[1] - 1] = reconstruct_int(corewar->memory,
+        (champion->PC + arg[0] % IDX_MOD) % MEM_SIZE, 4);
+    if (champion->reg[arg[1] - 1] == 0)
         champion->carry = 1;
     else
         champion->carry = 0;
-    write_into_memory(corewar->memory, (champion->PC + arg1 % IDX_MOD) %
-        MEM_SIZE, arg1);
 }
 
 void my_ld(corewar_t *corewar, champion_t *champion)
@@ -39,6 +37,6 @@ void my_ld(corewar_t *corewar, champion_t *champion)
     champion->PC = (champion->PC + 1) % MEM_SIZE;
     arg1 = get_arg(corewar, champion, get_type(coding_byte, 1));
     arg2 = get_arg(corewar, champion, 1);
-    exec_ld(corewar, champion, arg1, arg2);
+    exec_ld(corewar, champion, (int32_t[2]){arg1, arg2});
     free(coding_byte);
 }
