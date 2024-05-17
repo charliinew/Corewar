@@ -19,6 +19,18 @@ void set_champion_next(corewar_t *corewar)
     }
 }
 
+champion_t *set_champion_child(champion_t *champion)
+{
+    champion->child = malloc(sizeof(champion_t *));
+    if (champion->child == NULL) {
+        free(champion->flags);
+        free(champion);
+        return NULL;
+    }
+    *champion->child = NULL;
+    return champion;
+}
+
 champion_t *set_champion(void)
 {
     champion_t *champion = malloc(sizeof(champion_t));
@@ -39,5 +51,5 @@ champion_t *set_champion(void)
     champion->flags->a = -1;
     champion->flags->prog_name = NULL;
     champion->next = NULL;
-    return champion;
+    return set_champion_child(champion);
 }

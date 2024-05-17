@@ -62,6 +62,8 @@ SRC = 	lib/my_put_nbr.c \
 		src/main_loop/main_loop.c \
 		src/main_loop/display_winner_player.c \
 		src/main_loop/check_end_loop.c \
+		src/fork/add_child.c \
+		src/fork/copy_champ.c \
 		src/op.c \
 		src/main.c \
 		src/memory/memory.c \

@@ -30,6 +30,7 @@ typedef struct champion_s {
     header_t *header;
     flags_t *flags;
     int reg[16];
+    struct champion_s **child;
     struct champion_s *next;
     struct champion_s **child
 } champion_t;
@@ -43,5 +44,10 @@ int set_prog_name(char **av, int pos, champion_t *champion);
 champion_t *set_champion(void);
 int check_champion(corewar_t *corewar);
 void set_champion_next(corewar_t *corewar);
+void add_child(corewar_t *corewar, champion_t *champion, int child_pc, int
+    cycle_instruction);
+champion_t *set_champion_child(champion_t *champion);
+header_t *copy_header(header_t *header);
+flags_t *copy_flags(flags_t *flags);
 
 #endif /* !CHAMPIONS_H */
