@@ -49,6 +49,7 @@ SRC = 	lib/my_put_nbr.c \
 		src/tools/get_type.c \
 		src/tools/get_arg.c \
 		src/tools/write_into_memory.c \
+		src/tools/get_type_index.c \
 		src/execution/execution.c \
 		src/memory/add_to_memory.c \
 		src/free/free_struct.c \
