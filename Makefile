@@ -59,11 +59,13 @@ SRC = 	lib/my_put_nbr.c \
 		src/parsing/open_file.c \
 		src/parsing/recup_instructions.c \
 		src/parsing/verif_magic_number.c \
+		src/main_loop/main_loop.c \
+		src/main_loop/display_winner_player.c \
+		src/main_loop/check_end_loop.c \
 		src/op.c \
 		src/main.c \
 		src/memory/memory.c \
 		src/corewar_struct.c \
-		src/main_loop.c \
 
 OBJ	=	$(SRC:.c=.o)
 

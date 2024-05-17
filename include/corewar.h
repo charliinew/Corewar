@@ -61,4 +61,6 @@ int get_type(char *cdb, int idx);
 void write_into_memory(uint8_t *memory, int index, int32_t value);
 int get_type_index(char *cdb, int idx);
 
+void display_winner_player(corewar_t *corewar);
+int check_end(corewar_t *corewar);
 #endif /* COREWAR */

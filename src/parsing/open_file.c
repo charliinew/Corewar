@@ -23,4 +23,3 @@ int verif_open(champion_t *champion, u_int8_t *memory)
     close(fd);
     return 0;
 }
-

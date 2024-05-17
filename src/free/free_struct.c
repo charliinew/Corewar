@@ -11,7 +11,8 @@ void free_struct(corewar_t *corewar, u_int8_t *memory)
 {
     champion_t *current = *corewar->champion;
     champion_t *next;
-    for (;current != NULL; current = next) {
+
+    for (; current != NULL; current = next) {
         next = current->next;
         if (current->flags->prog_name != NULL)
             free(current->flags->prog_name);
