@@ -12,7 +12,7 @@ static int alive_champion(corewar_t *corewar)
     int counter = 0;
     champion_t *tmp = *corewar->champion;
 
-    for (; tmp != NULL ; tmp = tmp->next) {
+    for (; tmp != NULL; tmp = tmp->next) {
         if ((*corewar->champion)->live > 0)
             counter++;
         (*corewar->champion)->live = 0;
@@ -37,7 +37,6 @@ static int check_end(corewar_t *corewar)
         return alive_champion(corewar);
     }
     return 0;
-
 }
 
 void launch_corewar(corewar_t *corewar)

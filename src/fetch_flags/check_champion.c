@@ -7,7 +7,7 @@
 
 #include "../../include/corewar.h"
 
-int check_champion(corewar_t *corewar)
+static void find_nb_id(corewar_t *corewar)
 {
     champion_t *tmp = *corewar->champion;
 
@@ -18,10 +18,16 @@ int check_champion(corewar_t *corewar)
         } else
             break;
     }
+}
+
+int check_champion(corewar_t *corewar)
+{
+    champion_t *tmp = *corewar->champion;
+
+    find_nb_id(corewar);
     if (corewar->nb_champion < 2)
         return 84;
-    tmp = *corewar->champion;
-    for (; tmp != NULL;  tmp = tmp->next) {
+    for (; tmp != NULL; tmp = tmp->next) {
         if (tmp->flags->prog_name == NULL)
             return 84;
         if (tmp->flags->a >= MEM_SIZE)
