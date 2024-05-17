@@ -29,7 +29,7 @@ static void exec_or(champion_t *champion, int32_t arg[3], char *cdb)
     champion->carry = (champion->reg[arg[2] - 1] == 0) ? 1 : 0;
 }
 
-void my_and(corewar_t *corewar, champion_t *champion)
+void my_or(corewar_t *corewar, champion_t *champion)
 {
     char *coding_byte = NULL;
     int32_t arg1;
