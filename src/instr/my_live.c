@@ -17,8 +17,11 @@ void my_live(corewar_t *corewar, champion_t *champion)
     champion->cycle_instruction = 9;
     champion->PC = (champion->PC + 5) % MEM_SIZE;
     for (; tmp != NULL; tmp = tmp->next) {
-        if (tmp->reg[0] == id)
+        tmp->last_live = 0;
+        if (tmp->reg[0] == id) {
             tmp->live++;
+            tmp->last_live = 1;
+        }
     }
     my_putstr("The player ");
     my_put_nbr(id);

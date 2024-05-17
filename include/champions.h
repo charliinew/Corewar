@@ -24,6 +24,7 @@ typedef struct champion_s {
     int id;
     int cycle_instruction;
     int live;
+    bool last_live;
     int PC;
     int carry;
     header_t *header;
