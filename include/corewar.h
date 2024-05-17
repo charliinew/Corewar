@@ -59,5 +59,6 @@ char *int_to_bin(int nb);
 int get_arg(corewar_t *corewar, champion_t *champion, int size);
 int get_type(char *cdb, int idx);
 void write_into_memory(uint8_t *memory, int index, int32_t value);
+int get_type_index(char *cdb, int idx);
 
 #endif /* COREWAR */
