@@ -16,9 +16,9 @@ void purshase_execution(corewar_t *corewar, champion_t *champion)
         champion->cycle_instruction--;
         return;
     }
-    for (i = 1; i <= 16; i++) {
+    for (i = 0; i < 16; i++) {
         if (instruction == op_tab[i].code) {
-            instr_tab[i - 1](corewar, champion);
+            instr_tab[i](corewar, champion);
             break;
         }
     }
