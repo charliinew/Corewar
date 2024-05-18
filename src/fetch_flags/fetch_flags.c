@@ -20,12 +20,14 @@ static int check_flags(char **av, int *pos, champion_t **champion, int *dump)
 
 static void add_champion(champion_t **begin, champion_t *tmp)
 {
+    champion_t *add = *begin;
+
     if (*begin == NULL) {
         *begin = tmp;
         return;
     }
-    tmp->next = *begin;
-    *begin = tmp;
+    for (; add->next != NULL; add = add->next);
+    add->next = tmp;
 }
 
 static int champion_flags(int *dump, champion_t **begin,
