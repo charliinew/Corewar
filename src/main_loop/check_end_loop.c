@@ -2,10 +2,10 @@
 ** EPITECH PROJECT, 2024
 ** corewar
 ** File description:
-** main_loop.c
+** check_end_loop.c
 */
 
-#include "../include/corewar.h"
+#include "../../include/corewar.h"
 
 static int alive_champion(corewar_t *corewar)
 {
@@ -13,16 +13,18 @@ static int alive_champion(corewar_t *corewar)
     champion_t *tmp = *corewar->champion;
 
     for (; tmp != NULL; tmp = tmp->next) {
-        if ((*corewar->champion)->live > 0)
+        if ((*corewar->champion)->live > 0) {
             counter++;
-        (*corewar->champion)->live = 0;
+            (*corewar->champion)->live = 0;
+        } else
+            (*corewar->champion)->live = -1;
     }
     if (counter <= 1)
         return 1;
     return 0;
 }
 
-static int check_end(corewar_t *corewar)
+int check_end(corewar_t *corewar)
 {
     corewar->total_cycle++;
     corewar->actual_ctd++;
@@ -37,21 +39,4 @@ static int check_end(corewar_t *corewar)
         return alive_champion(corewar);
     }
     return 0;
-}
-
-void launch_corewar(corewar_t *corewar)
-{
-    champion_t *tmp = *corewar->champion;
-
-    while (1) {
-        for (; tmp != NULL; tmp = tmp->next) {
-            purshase_execution(corewar, tmp);
-        }
-        if (check_end(corewar) == 1) {
-            break;
-        }
-        tmp = *corewar->champion;
-    }
-    if (corewar->dump != -1)
-        display_memory(corewar->memory, MEM_SIZE);
 }
